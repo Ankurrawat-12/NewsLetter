@@ -49,7 +49,7 @@ app.post("/", (req, res) => {
             res.sendFile(__dirname + "/failure.html");
             console.log("=============ERROR=============");
             // console.log(JSON.parse(e.response.error.txt).detail);
-        };
+        }; 
     }
     run();
 });
@@ -58,6 +58,6 @@ app.post("/failure", (req, res) => {
     res.redirect('/')
 })
 
-app.listen("3000", () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server Running at port 3000");
 });
