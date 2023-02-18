@@ -24,7 +24,7 @@ app.post("/", (req, res) => {
     const suscribingUser = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        // mobileNumber: req.body.mobileNumber,
+        mobileNumber: req.body.mobileNumber,
         email: req.body.email,
     };
     const run = async () => {
@@ -35,7 +35,7 @@ app.post("/", (req, res) => {
                 merge_fields: {
                     FNAME: suscribingUser.firstName,
                     LNAME: suscribingUser.lastName,
-                    // PHONE: suscribingUser.mobileNumber
+                    PHONE: suscribingUser.mobileNumber
                 }
             });
             res.sendFile(__dirname+ '/success.html');
