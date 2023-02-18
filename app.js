@@ -1,18 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
+require('dotenv').config()
 const client = require("@mailchimp/mailchimp_marketing");
 
 
-// Api Key
-const APIKEY = "4f6c78758e6570625debe8ce3af62bcd-us21";
-
-// Audience Id
-const audience_id = "07866c0ab0";
-
-
 client.setConfig({
-    apiKey: APIKEY,
+    apiKey: process.env.APIKEY,
     server: "us21",
 });
 
@@ -35,7 +29,7 @@ app.post("/", (req, res) => {
     };
     const run = async () => {
         try{
-            const response = await client.lists.addListMember(audience_id, {
+            const response = await client.lists.addListMember(process.env.AUDIENCE_ID, {
                 email_address: suscribingUser.email,
                 status: "subscribed",
                 merge_fields: {
