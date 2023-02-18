@@ -25,6 +25,7 @@ app.post("/", (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         mobileNumber: req.body.mobileNumber,
+        address: req.body.address,
         email: req.body.email,
     };
     const run = async () => {
@@ -35,6 +36,7 @@ app.post("/", (req, res) => {
                 merge_fields: {
                     FNAME: suscribingUser.firstName,
                     LNAME: suscribingUser.lastName,
+                    ADDRESS: suscribingUser.address,
                     PHONE: suscribingUser.mobileNumber
                 }
             });
@@ -51,6 +53,10 @@ app.post("/", (req, res) => {
     }
     run();
 });
+
+app.post("/failure", (req, res) => {
+    res.redirect('/')
+})
 
 app.listen("3000", () => {
     console.log("Server Running at port 3000");

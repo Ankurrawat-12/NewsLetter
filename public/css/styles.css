@@ -38,6 +38,12 @@ body {
     border-radius: 0;
 }
 
+.form-signin input[name="address"] {
+    margin-bottom: -1px;
+    margin-top: -1px;
+    border-radius: 0;
+}
+
 
 .form-signin input[type="email"] {
   margin-bottom: 10px;
